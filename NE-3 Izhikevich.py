@@ -8,7 +8,7 @@ titles = ['thalamo-cortical #1']
 a  = [0.02]
 b  = [0.25]
 c  = [-65]
-d  = [0.05]
+d  = [0.5]
 
 v0 = -70  # Resting potential        [mV]
 T = 200  # Simulation time          [mSec]
@@ -18,7 +18,9 @@ time = np.arange(0, T + dt, dt)  # Time array
 
 stim = np.zeros(len(time))
 for i, t in enumerate(stim):
-    if i > 20:
+    if i <= 100:
+        stim[i] = -3
+    if i > 100:
         stim[i] = 1
 
 trace = np.zeros((2, len(time)))  # Tracing du and dv
